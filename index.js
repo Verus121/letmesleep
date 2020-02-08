@@ -3,6 +3,15 @@ var twitterConfig = require('./config');
 
 var T = new Twit(twitterConfig);
 
+function postToT(text) {
+
+    var r = Math.floor(Math.random()*10000);
+
+    T.post('statuses/update', { status: "You Can Sleep!" + r }, function(err, data, response) {
+        console.log(data);
+    })
+}
+
 function getFromT() {
 
     console.log("Checking if I can sleep in!");
@@ -18,7 +27,7 @@ function getFromT() {
     function gotData(err, data, response) {
         for( var i = 0; i < data.length; i++ )
             if( parseText(data[i].full_text) )
-                console.log("dont wake up!" + data[i].full_text);
+                postToT( data[i].full_text ) 
     };
 } // getFromT
 
@@ -30,5 +39,5 @@ function parseText(text) {
     return false;
 } // parseText
 
-setInterval(getFromT, 1000 * 10); // Each Minute
+setInterval(getFromT, 1000 * 60); // Each Minute
 // setInterval(getFromT(), 1000 * 60 * 60); // Each Hour
