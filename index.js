@@ -1,7 +1,10 @@
 var Twit = require('twit');
 var twitterConfig = require('./config');
+require('dotenv').config();
 
 var T = new Twit(twitterConfig);
+
+console.log(process.env);
 
 function postToT(text) {
 
@@ -39,5 +42,5 @@ function parseText(text) {
     return false;
 } // parseText
 
-setInterval(getFromT, 1000 * 60); // Each Minute
+// setInterval(getFromT, 1000 * 60); // Each Minute
 // setInterval(getFromT(), 1000 * 60 * 60); // Each Hour
