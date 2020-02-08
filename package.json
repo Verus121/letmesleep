@@ -1,0 +1,14 @@
+{
+  "name": "letmesleep",
+  "version": "1.0.0",
+  "description": "Using twitter to track snow days to turn off my alarm clock",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "twit": "^2.2.11"
+  }
+}
